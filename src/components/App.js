@@ -13,8 +13,9 @@ const App = () => {
   const [activities, setActivities] = useState([
     "Exercise",
     "Meditate",
-    "Practice Piano",
-    "Practice Chess",
+    "Practice piano",
+    "Study chess",
+    "Read",
   ]);
 
   const refRenderRoot = useRef(null);

@@ -1,17 +1,22 @@
-.table-root {
-  /* TODO: not working*/
-  /* width: 2500px !important; */
-}
-
 .left-col {
   width: 150px;
 }
 
 .day-name {
   font-size: x-small;
-  /* font-style: italic; */
 }
 
-/* th {
-  padding: 0px;
-} */
+/*
+    Force table border and header bg colors.
+    Without this, cell divisions are too difficult to see on printouts.
+*/
+.ui.table {
+  border-color: black !important;
+}
+.ui.table tr th {
+  border-color: black !important;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.ui.table tr td {
+  border-color: black !important;
+}

@@ -32,6 +32,7 @@ const DateSelector = ({
           value={currentYear}
           onChange={(e) => onYearChange(e.target.value)}
           min="0"
+          max="9999"
         />
       </div>
       <div className="input-wrapper">

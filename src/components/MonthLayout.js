@@ -72,7 +72,10 @@ const MonthLayout = ({ month, year, activities }) => {
       const emptyCells = _.range(COL_COUNT).map((i) => <td key={i}></td>);
       const renderRow = (activity) => {
         return (
-          <tr key={getUniqueKey(month, year, activity)}>
+          <tr
+            key={getUniqueKey(month, year, activity)}
+            className="right aligned"
+          >
             <td className="left-col">{activity}</td>
             {emptyCells}
           </tr>
@@ -85,7 +88,7 @@ const MonthLayout = ({ month, year, activities }) => {
     };
 
     return (
-      <table className="table-root ui celled table fixed compact small unstackable single line">
+      <table className="ui celled table fixed compact small unstackable single line">
         {renderHeader()}
         {renderBody()}
       </table>
