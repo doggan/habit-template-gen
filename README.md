@@ -1,3 +1,11 @@
+# TODOs:
+
+- project (re) name
+- publish to github pages
+- activity editor
+- update readme + add screenshot + demo link
+- cleanup todos
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
