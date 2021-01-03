@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useRef } from "react";
 import "./App.css";
+import Habits from "./Habits";
 import DateSelector from "./DateSelector";
 import DownloadButton from "./DownloadButton";
 import Footer from "./Footer";
@@ -10,7 +11,7 @@ const App = () => {
   const [startMonth, setStartMonth] = useState(new Date().getMonth());
   const [startYear, setStartYear] = useState(new Date().getFullYear());
   const [monthCount, setMonthCount] = useState(3);
-  const [activities, setActivities] = useState([
+  const [habits, setHabits] = useState([
     "Exercise",
     "Meditate",
     "Practice piano",
@@ -20,17 +21,6 @@ const App = () => {
 
   const refRenderRoot = useRef(null);
 
-  // TODO:
-  // - move to editable component
-  // - limit to ~6ish
-  const renderedActivities = () => {
-    const items = activities.map((activity) => {
-      return <li key={activity}>{activity}</li>;
-    });
-
-    return <ul>{items}</ul>;
-  };
-
   return (
     <div className="app">
       <h1 className="ui center aligned header">
@@ -39,8 +29,13 @@ const App = () => {
       <div className="ui container segment">
         <div className="ui grid">
           <div className="eight wide column">
-            <b>Activities</b>
-            {renderedActivities()}
+            <Habits
+              habits={habits}
+              onClickDeleteHabit={(index) =>
+                setHabits(habits.filter((_, i) => i !== index))
+              }
+              onClickAddHabit={(newHabit) => setHabits([...habits, newHabit])}
+            />
           </div>
           <div className="eight wide column">
             <DateSelector
@@ -68,7 +63,7 @@ const App = () => {
             startMonth={startMonth}
             startYear={startYear}
             monthCount={monthCount}
-            activities={activities}
+            habits={habits}
           />
         </div>
       </div>

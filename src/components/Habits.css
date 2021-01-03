@@ -1,0 +1,8 @@
+.hide {
+  display: none;
+}
+
+.destroy-button:hover > .hide {
+  display: block;
+  cursor: pointer;
+}
