@@ -2,7 +2,12 @@ import _ from "lodash";
 import { useState } from "react";
 import "./Habits.css";
 
-const Habits = ({ habits, onClickDeleteHabit, onClickAddHabit }) => {
+const Habits = ({
+  habits,
+  onClickDeleteHabit,
+  onClickAddHabit,
+  onClickClearAllHabits,
+}) => {
   const [newHabitText, setNewHabitText] = useState("");
 
   const onInputChange = (event) => {
@@ -22,9 +27,23 @@ const Habits = ({ habits, onClickDeleteHabit, onClickAddHabit }) => {
 
   return (
     <div>
-      <b>Habits</b>
+      <b>
+        Habits{" "}
+        <small>
+          <a
+            onClick={(e) => {
+              e.preventDefault();
+              onClickClearAllHabits();
+            }}
+            href=""
+          >
+            (clear all)
+          </a>
+        </small>
+      </b>
+
       <div className="ui aligned divided list">{renderedHabits}</div>
-      <div className="ui fluid mini action input">
+      <div className="ui fluid small action input">
         <input
           type="text"
           placeholder="Add a habit..."
