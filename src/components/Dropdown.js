@@ -24,19 +24,20 @@ const Dropdown = ({ label, options, selected, onSelectedChange }) => {
   }, []);
 
   const renderedOptions = options.map((option) => {
-    if (option.value === selected.value) {
-      return null;
-    }
+    const isSelected = option.value === selected.value;
+    const getRenderedLabel = (label) => {
+      return isSelected ? <b>{label}</b> : label;
+    };
 
     return (
       <div
         key={option.value}
-        className="item"
+        className={"item " + (isSelected ? "selected" : "")}
         onClick={() => {
           onSelectedChange(option);
         }}
       >
-        {option.label}
+        {getRenderedLabel(option.label)}
       </div>
     );
   });
