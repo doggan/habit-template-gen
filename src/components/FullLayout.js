@@ -31,6 +31,14 @@ const FullLayout = ({ startMonth, startYear, monthCount, habits }) => {
     );
   });
 
+  if (!habits || habits.length < 1) {
+    return (
+      <div className="ui error message">
+        <p>Please enter at least 1 habit.</p>
+      </div>
+    );
+  }
+
   return <div className="ui items">{renderedMonths}</div>;
 };
 
