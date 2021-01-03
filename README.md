@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A web app for generating printable habit tracker templates. See live app for more details:
+A web app for generating printable (PDF) habit tracker templates. See live app for more details:
 
 https://doggan.github.io/habit-template-gen/
 
