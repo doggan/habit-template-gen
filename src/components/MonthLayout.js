@@ -44,7 +44,7 @@ const MonthLayout = ({ month, year, habits }) => {
             {val}
             <br />
             <span className="day-name">
-              {getDayOfWeek(`${year}-${month + 1}-${val}`)}
+              {getDayOfWeek(`${year}-${parseInt(month, 10) + 1}-${val}`)}
             </span>
           </th>
         ) : (

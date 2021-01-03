@@ -48,7 +48,7 @@ const Habits = ({
               e.preventDefault();
               onClickClearAllHabits();
             }}
-            href=""
+            href="."
           >
             (clear all)
           </a>

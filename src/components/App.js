@@ -31,6 +31,7 @@ const App = () => {
         <p>
           <a
             target="_blank"
+            rel="noopener noreferrer"
             href="https://www.google.com/search?q=habit+tracker"
           >
             Habit trackers
@@ -52,17 +53,14 @@ const App = () => {
         </p>
         <p>Good luck!</p>
         <h3 className="ui dividing header">How to Use</h3>
-        <p>
-          {" "}
-          <ol>
-            <li>Add the habits you want to track.</li>
-            <li>
-              Select the start month/year and the duration you want to track the
-              habits.
-            </li>
-            <li>Download and print the generated PDF.</li>
-          </ol>{" "}
-        </p>
+        <ol>
+          <li>Add the habits you want to track.</li>
+          <li>
+            Select the start month/year and the duration you want to track the
+            habits.
+          </li>
+          <li>Download and print the generated PDF.</li>
+        </ol>{" "}
         <h3 className="ui dividing header">Configuration</h3>
         <div className="ui grid">
           <div className="eight wide column">
