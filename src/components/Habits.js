@@ -14,6 +14,19 @@ const Habits = ({
     setNewHabitText(event.target.value);
   };
 
+  const onInputKeyPress = (event) => {
+    if (event.key === "Enter" && newHabitText) {
+      addNewHabit();
+    }
+  };
+
+  const addNewHabit = () => {
+    onClickAddHabit(newHabitText);
+
+    // Clear input.
+    setNewHabitText("");
+  };
+
   const renderedHabits = _.map(habits, (habit, index) => {
     return (
       <div key={index} className="item destroy-button">
@@ -48,16 +61,12 @@ const Habits = ({
           type="text"
           placeholder="Add a habit..."
           onChange={onInputChange}
+          onKeyPress={onInputKeyPress}
           value={newHabitText}
         />
         <button
           disabled={!newHabitText}
-          onClick={() => {
-            onClickAddHabit(newHabitText);
-
-            // Clear input.
-            setNewHabitText("");
-          }}
+          onClick={() => addNewHabit()}
           className="ui button"
         >
           Add

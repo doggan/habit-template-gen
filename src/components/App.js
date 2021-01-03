@@ -27,7 +27,7 @@ const App = () => {
         <h1 className="ui center aligned header">
           Habit Tracker - Template Generator
         </h1>
-        <h3 class="ui dividing header">Overview</h3>
+        <h3 className="ui dividing header">Overview</h3>
         <p>
           <a
             target="_blank"
@@ -51,7 +51,7 @@ const App = () => {
           continue with the habit.
         </p>
         <p>Good luck!</p>
-        <h3 class="ui dividing header">How to Use</h3>
+        <h3 className="ui dividing header">How to Use</h3>
         <p>
           {" "}
           <ol>
@@ -63,7 +63,7 @@ const App = () => {
             <li>Download and print the generated PDF.</li>
           </ol>{" "}
         </p>
-        <h3 class="ui dividing header">Configuration</h3>
+        <h3 className="ui dividing header">Configuration</h3>
         <div className="ui grid">
           <div className="eight wide column">
             <Habits
