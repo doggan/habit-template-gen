@@ -18,7 +18,9 @@ https://doggan.github.io/habit-template-gen/
 
   - `npm start`
 
-- Build / Deploy: todo
+- Build and deploy to GitHub Pages:
+
+  - `npm run deploy`
 
 ## Known Issues / Potential Future Improvements
 
