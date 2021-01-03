@@ -1,10 +1,13 @@
 # TODOs:
 
-- project (re) name
+- add description/summary
+-
 - publish to github pages
 - activity editor
 - update readme + add screenshot + demo link
 - cleanup todos
+  X turn inputs into dropdowns (months) and years and # of months
+- add known issues to README (e.g. # of months and print aspect ratio)
 
 # Getting Started with Create React App
 

@@ -43,7 +43,6 @@ const App = () => {
             {renderedActivities()}
           </div>
           <div className="eight wide column">
-            <b>Time Parameters</b>
             <DateSelector
               currentMonth={startMonth}
               currentYear={startYear}
