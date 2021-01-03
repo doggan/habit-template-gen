@@ -33,11 +33,11 @@ const MONTHS = [
 
 const COL_COUNT = 31;
 
-const getUniqueKey = (month, year, activity) => {
-  return `${year}-${month}-${activity}`;
+const getUniqueKey = (month, year, habit) => {
+  return `${year}-${month}-${habit}`;
 };
 
-const MonthLayout = ({ month, year, activities }) => {
+const MonthLayout = ({ month, year, habits }) => {
   const renderTable = (month, year) => {
     const renderHeader = () => {
       const numDaysInMonth = daysInMonth(month, year);
@@ -70,19 +70,16 @@ const MonthLayout = ({ month, year, activities }) => {
 
     const renderBody = () => {
       const emptyCells = _.range(COL_COUNT).map((i) => <td key={i}></td>);
-      const renderRow = (activity) => {
+      const renderRow = (habit) => {
         return (
-          <tr
-            key={getUniqueKey(month, year, activity)}
-            className="right aligned"
-          >
-            <td className="left-col">{activity}</td>
+          <tr key={getUniqueKey(month, year, habit)} className="right aligned">
+            <td className="left-col">{habit}</td>
             {emptyCells}
           </tr>
         );
       };
 
-      const renderedRows = activities.map((activity) => renderRow(activity));
+      const renderedRows = habits.map((habit) => renderRow(habit));
 
       return <tbody>{renderedRows}</tbody>;
     };
@@ -95,8 +92,8 @@ const MonthLayout = ({ month, year, activities }) => {
     );
   };
 
-  if (!activities || activities.length < 1) {
-    return <div>Enter at least 1 activity.</div>;
+  if (!habits || habits.length < 1) {
+    return <div>Enter at least 1 habit.</div>;
   }
 
   return <div>{renderTable(month, year)}</div>;

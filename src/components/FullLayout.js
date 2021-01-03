@@ -21,16 +21,12 @@ const getDesiredMonths = (startMonth, startYear, monthCount) => {
   return desiredMonths;
 };
 
-const FullLayout = ({ startMonth, startYear, monthCount, activities }) => {
+const FullLayout = ({ startMonth, startYear, monthCount, habits }) => {
   const desiredMonths = getDesiredMonths(startMonth, startYear, monthCount);
   const renderedMonths = desiredMonths.map((val) => {
     return (
       <div key={`${val.year}-${val.month}`} className="item">
-        <MonthLayout
-          month={val.month}
-          year={val.year}
-          activities={activities}
-        />
+        <MonthLayout month={val.month} year={val.year} habits={habits} />
       </div>
     );
   });
