@@ -26,3 +26,4 @@ https://doggan.github.io/habit-template-gen/
 
 - Add drag/drop support to modify habit order.
 - Improve PDF rendering (support multiple pages, fix aspect ratio bugs, etc).
+  - TODO: maybe better to just render PDF directly into page to show final result; then download the PDF directly.

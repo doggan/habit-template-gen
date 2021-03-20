@@ -6,6 +6,7 @@ import DateSelector from "./DateSelector";
 import DownloadButton from "./DownloadButton";
 import Footer from "./Footer";
 import FullLayout from "./FullLayout";
+import FullLayoutPdf from "./FullLayoutPdf";
 
 const App = () => {
   const [startMonth, setStartMonth] = useState(new Date().getMonth());
@@ -94,6 +95,9 @@ const App = () => {
             </div>
           </div>
         </div>
+
+        <FullLayoutPdf />
+
         <div ref={refRenderRoot}>
           <FullLayout
             startMonth={startMonth}
