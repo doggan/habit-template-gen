@@ -16,16 +16,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const FullLayoutPdf = () => {
+const FullLayoutPdf = ({ habits }) => {
+  const renderedHabits = habits.map((habit) => {
+    return <Text key={habit}>{habit}</Text>;
+  });
   return (
     <div>
       <div className="ui container segment">
-        {/* Document, Page, View, Text,  */}
         <PDFViewer>
           <Document>
-            <Page size="A4">
+            <Page orientation="landscape" size="A4">
               <View style={styles.section}>
-                <Text>Section #1</Text>
+                {renderedHabits}
+                {/* <Text>Section #1</Text>
+                <Text>Another section</Text>
+                <Text>Another section</Text> */}
               </View>
               <View style={styles.section}>
                 <Text>Section #2</Text>

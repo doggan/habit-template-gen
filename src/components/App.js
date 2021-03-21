@@ -96,7 +96,7 @@ const App = () => {
           </div>
         </div>
 
-        <FullLayoutPdf />
+        <FullLayoutPdf habits={habits} />
 
         <div ref={refRenderRoot}>
           <FullLayout
