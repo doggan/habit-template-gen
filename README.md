@@ -26,3 +26,4 @@ https://doggan.github.io/habit-template-gen/
 
 - Add drag/drop support to modify habit order.
 - Improve PDF rendering (support multiple pages, fix aspect ratio bugs, etc).
+  - PDF gets cut off depending on current page scroll position.
