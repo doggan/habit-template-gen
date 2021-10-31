@@ -50,7 +50,13 @@ const DownloadButton = ({ refRenderRoot }) => {
       inputWidthPx: input.offsetWidth,
     });
 
-    html2canvas(input).then((canvas) => {
+    html2canvas(input, {
+      // Explicitly specify scroll values to avoid offsets being added
+      // depending on user's scroll location.
+      // Ref: https://github.com/eKoopmans/html2pdf.js/issues/175
+      scrollX: 0,
+      scrollY: 0,
+    }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("l", "mm", [a4HeightMm, a4WidthMm]);
 
