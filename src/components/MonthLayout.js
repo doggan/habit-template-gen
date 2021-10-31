@@ -9,8 +9,8 @@ function daysInMonth(month, year) {
   return new Date(year, month + 1, 0).getDate();
 }
 
-function getDayOfWeek(date) {
-  const dayOfWeek = new Date(date).getDay();
+function getDayOfWeek(year, month, day) {
+  const dayOfWeek = new Date(year, month, day).getDay();
   return isNaN(dayOfWeek)
     ? null
     : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][dayOfWeek];
@@ -37,15 +37,13 @@ const MonthLayout = ({ month, year, habits }) => {
   const renderTable = (month, year) => {
     const renderHeader = () => {
       const numDaysInMonth = daysInMonth(month, year);
-      const dayNumbers = _.range(1, COL_COUNT + 1).map((val) => {
-        const key = val;
-        return val <= numDaysInMonth ? (
+      const dayNumbers = _.range(1, COL_COUNT + 1).map((day) => {
+        const key = day;
+        return day <= numDaysInMonth ? (
           <th key={key}>
-            {val}
+            {day}
             <br />
-            <span className="day-name">
-              {getDayOfWeek(`${year}-${parseInt(month, 10) + 1}-${val}`)}
-            </span>
+            <span className="day-name">{getDayOfWeek(year, month, day)}</span>
           </th>
         ) : (
           <th key={key}></th>
