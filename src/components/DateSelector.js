@@ -5,51 +5,51 @@ import "./DateSelector.css";
 const MONTH_OPTIONS = [
   {
     label: "January",
-    value: "0",
+    value: 0,
   },
   {
     label: "February",
-    value: "1",
+    value: 1,
   },
   {
     label: "March",
-    value: "2",
+    value: 2,
   },
   {
     label: "April",
-    value: "3",
+    value: 3,
   },
   {
     label: "May",
-    value: "4",
+    value: 4,
   },
   {
     label: "June",
-    value: "5",
+    value: 5,
   },
   {
     label: "July",
-    value: "6",
+    value: 6,
   },
   {
     label: "August",
-    value: "7",
+    value: 7,
   },
   {
     label: "September",
-    value: "8",
+    value: 8,
   },
   {
     label: "October",
-    value: "9",
+    value: 9,
   },
   {
     label: "November",
-    value: "10",
+    value: 10,
   },
   {
     label: "December",
-    value: "11",
+    value: 11,
   },
 ];
 
@@ -114,7 +114,6 @@ const DateSelector = ({
         options={getDurationOptions()}
         selected={durationToOption(monthCount)}
         onSelectedChange={(selection) => {
-          console.log(selection.value);
           onMonthCountChange(selection.value);
         }}
       />
