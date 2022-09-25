@@ -1,5 +1,6 @@
 import _ from "lodash";
 import { useState } from "react";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "./Habits.css";
 
 const Habits = ({
@@ -7,6 +8,7 @@ const Habits = ({
   onClickDeleteHabit,
   onClickAddHabit,
   onClickClearAllHabits,
+  onSetHabits,
 }) => {
   const [newHabitText, setNewHabitText] = useState("");
 
@@ -27,14 +29,29 @@ const Habits = ({
     setNewHabitText("");
   };
 
+  const onDragEnd = (result) => {
+    const newItems = [...habits];
+    const [removed] = newItems.splice(result.source.index, 1);
+    newItems.splice(result.destination.index, 0, removed);
+    onSetHabits(newItems);
+  }
+
   const renderedHabits = _.map(habits, (habit, index) => {
     return (
-      <div key={index} className="item destroy-button">
-        <div className="right floated content hide">
-          <i className="x icon " onClick={() => onClickDeleteHabit(index)}></i>
-        </div>
-        <div className="content">{habit}</div>
-      </div>
+      <Draggable key={index} draggableId={"item-" + index} index={index}>
+          {(provided, _snapshot) => (
+            <div
+              ref={provided.innerRef}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+              className="item destroy-button">
+              <div className="right floated content hide">
+                <i className="x icon" onClick={() => onClickDeleteHabit(index)}></i>
+              </div>
+              <div className="content">{habit}</div>
+            </div>
+          )}
+      </Draggable>
     );
   });
 
@@ -55,7 +72,19 @@ const Habits = ({
         </small>
       </b>
 
-      <div className="ui aligned divided list">{renderedHabits}</div>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="droppable">
+          {(provided, _snapshot) => (
+            <div
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              className="ui aligned divided list">
+                {renderedHabits}
+                {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
       <div className="ui fluid small action input">
         <input
           type="text"

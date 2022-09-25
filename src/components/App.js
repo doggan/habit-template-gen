@@ -71,6 +71,7 @@ const App = () => {
               }
               onClickAddHabit={(newHabit) => setHabits([...habits, newHabit])}
               onClickClearAllHabits={() => setHabits([])}
+              onSetHabits={(newHabits) => setHabits(newHabits)}
             />
           </div>
           <div className="eight wide column">
