@@ -30,6 +30,10 @@ const Habits = ({
   };
 
   const onDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+    
     const newItems = [...habits];
     const [removed] = newItems.splice(result.source.index, 1);
     newItems.splice(result.destination.index, 0, removed);
