@@ -6,20 +6,27 @@ import DateSelector from "./DateSelector";
 import DownloadButton from "./DownloadButton";
 import Footer from "./Footer";
 import FullLayout from "./FullLayout";
+import { nanoid } from 'nanoid'
 
 const App = () => {
   const [startMonth, setStartMonth] = useState(new Date().getMonth());
   const [startYear, setStartYear] = useState(new Date().getFullYear());
   const [monthCount, setMonthCount] = useState(3);
   const [habits, setHabits] = useState([
-    "Exercise",
-    "Meditate",
-    "Practice piano",
-    "Study chess",
-    "Read",
+    { id: nanoid(), text: "Exercise" },
+    { id: nanoid(), text: "Meditate" },
+    { id: nanoid(), text: "Practice piano" },
+    { id: nanoid(), text: "Study chess" },
+    { id: nanoid(), text: "Read" },
   ]);
 
   const refRenderRoot = useRef(null);
+
+  const addHabit = (newHabitText) => {
+    setHabits([...habits,
+      { id: nanoid(), text: newHabitText }
+    ])
+  }
 
   return (
     <div className="app">
@@ -69,7 +76,7 @@ const App = () => {
               onClickDeleteHabit={(index) =>
                 setHabits(habits.filter((_, i) => i !== index))
               }
-              onClickAddHabit={(newHabit) => setHabits([...habits, newHabit])}
+              onClickAddHabit={(newHabit) => addHabit(newHabit)}
               onClickClearAllHabits={() => setHabits([])}
               onSetHabits={(newHabits) => setHabits(newHabits)}
             />

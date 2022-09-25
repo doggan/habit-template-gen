@@ -38,7 +38,7 @@ const Habits = ({
 
   const renderedHabits = _.map(habits, (habit, index) => {
     return (
-      <Draggable key={index} draggableId={"item-" + index} index={index}>
+      <Draggable key={habit.id} draggableId={habit.id} index={index}>
           {(provided, _snapshot) => (
             <div
               ref={provided.innerRef}
@@ -48,7 +48,7 @@ const Habits = ({
               <div className="right floated content hide">
                 <i className="x icon" onClick={() => onClickDeleteHabit(index)}></i>
               </div>
-              <div className="content">{habit}</div>
+              <div className="content">{habit.text}</div>
             </div>
           )}
       </Draggable>
