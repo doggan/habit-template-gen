@@ -64,10 +64,10 @@ const MonthLayout = ({ month, year, habits }) => {
 
     const renderBody = () => {
       const emptyCells = _.range(COL_COUNT).map((i) => <td key={i}></td>);
-      const renderedRows = habits.map((habit, index) => {
+      const renderedRows = habits.map((habit) => {
         return (
-          <tr key={index} className="right aligned">
-            <td className="left-col">{habit}</td>
+          <tr key={habit.id} className="right aligned">
+            <td className="left-col">{habit.text}</td>
             {emptyCells}
           </tr>
         );
