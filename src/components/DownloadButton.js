@@ -22,7 +22,7 @@ const range = (start, end) => {
 // TODO(shyam):
 // - this is likely broken for > 4 months worth of tables (need to support multiple pages)
 // - this is likely broken for different screen resolutions or browser size configurations.. needs more testing.
-const DownloadButton = ({ refRenderRoot }) => {
+const DownloadButton = ({ refRenderRoot, disabled }) => {
   const [loading, setLoading] = useState(false);
 
   const onClickDownload = () => {
@@ -90,6 +90,7 @@ const DownloadButton = ({ refRenderRoot }) => {
       <button
         onClick={() => onClickDownload()}
         className={"ui primary button " + (loading ? "loading" : "")}
+        disabled={disabled}
       >
         Download Template as PDF
       </button>
