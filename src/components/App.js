@@ -98,7 +98,10 @@ const App = () => {
         <div className="ui one column stackable center aligned page grid">
           <div className="column twelve wide">
             <div className="download-button">
-              <DownloadButton refRenderRoot={refRenderRoot} />
+              <DownloadButton 
+                disabled={habits.length < 1} 
+                refRenderRoot={refRenderRoot} 
+              />
             </div>
           </div>
         </div>
